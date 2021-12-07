@@ -1,13 +1,30 @@
 <template>
+<!-- Two-way binding meaning : 1) we can use component's methods property to update a form field's value
+2) and we can use form field's value to update components data property
+v-model directive binds data in both directions
+ -->
   <form>
       <label>Email:</label>
-      <input type="email" required>
+      <!-- use v-model="email" to bind the input with data's email value down below in data() -->
+      <input type="email" required v-model="email">
+      <label>Password:</label>
+      <!-- use v-model="email" to bind the input with data's email value down below in data() -->
+      <input type="password" required v-model="password">
   </form>
+  <p>Email: {{ email }}</p>
+  <p>Password: {{ password }}</p>
 </template>
 
 <script>
 export default {
-
+data() {
+    return {
+        // email value gets updated from <input>'s text field
+        // email property can be called anything else
+        email: '',
+        password: ''
+    }
+}
 }
 </script>
 
