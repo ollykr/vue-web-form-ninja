@@ -16,10 +16,31 @@ v-model directive binds data in both directions
           <option value="developer">Web Developer</option>
           <option value="designer">Web Designer</option>
       </select>
+
+      <div class="terms">
+          <input type="checkbox" v-model="terms" required>
+          <label>Accept Terms and Conditions</label>
+      </div>
+<!-- Array of checkboxes -->
+    <!-- <div>
+        <input type="checkbox" value="shaun" v-model="names">
+        <label>Shaun</label>
+    </div>
+    <div>
+        <input type="checkbox" value="yoshi" v-model="names">
+        <label>yoshi</label>
+    </div>
+    <div>
+        <input type="checkbox" value="mario" v-model="names">
+        <label>mario</label>
+    </div> -->
+
   </form>
   <p>Email: {{ email }}</p>
   <p>Password: {{ password }}</p>
   <p>Role: {{ role }}</p>
+  <p>Terms accepted: {{ terms }}</p>
+  <!-- <p>Names: {{ names }}</p> -->
 </template>
 
 <script>
@@ -29,11 +50,14 @@ data() {
         // email value gets updated from <input>'s text field
         // email property can be called anything else
         // values from form fields are assigned here
-        email: '',
+        email: 'Mario',
         password: '',
         // designer option is selected by default
         // if empty , no option displayed by default
-        role: 'designer'
+        role: 'designer',
+        // set 'terms' to true, if you want a checkbox to be checked by default
+        terms: false,
+        // names: []
     }
 }
 }
@@ -65,5 +89,12 @@ form {
     border: none;
     border-bottom: 1px solid #ddd;
     color: #555;
+  }
+   input[type="checkbox"] {
+    display: inline-block;
+    width: 16px;
+    margin: 0 10px 0 0;
+    position: relative;
+    top: 2px;
   }
 </style>
