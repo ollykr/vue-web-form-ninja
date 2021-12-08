@@ -10,9 +10,16 @@ v-model directive binds data in both directions
       <label>Password:</label>
       <!-- use v-model="email" to bind the input with data's email value down below in data() -->
       <input type="password" required v-model="password">
+
+      <label>Role: </label>
+      <select v-model="role">
+          <option value="developer">Web Developer</option>
+          <option value="designer">Web Designer</option>
+      </select>
   </form>
   <p>Email: {{ email }}</p>
   <p>Password: {{ password }}</p>
+  <p>Role: {{ role }}</p>
 </template>
 
 <script>
@@ -21,8 +28,12 @@ data() {
     return {
         // email value gets updated from <input>'s text field
         // email property can be called anything else
+        // values from form fields are assigned here
         email: '',
-        password: ''
+        password: '',
+        // designer option is selected by default
+        // if empty , no option displayed by default
+        role: 'designer'
     }
 }
 }
@@ -46,7 +57,7 @@ form {
     letter-spacing: 1px;
     font-weight: bold;
   }
-  input {
+  input, select {
     display: block;
     padding: 10px 6px;
     width: 100%;
